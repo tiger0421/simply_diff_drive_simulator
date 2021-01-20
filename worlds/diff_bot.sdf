@@ -120,55 +120,6 @@
         <real_time_factor>true</real_time_factor>
         <iterations>true</iterations>
       </plugin>
-      <!-- Image display -->
-      <plugin filename="ImageDisplay" name="FrontRGBDImage">
-        <ignition-gui>
-          <title>RGBD: image front</title>
-          <property key="state" type="string">floating</property>
-          <property type="double" key="width">280</property>
-          <property type="double" key="height">300</property>
-          <property type="double" key="x">0</property>
-          <property type="double" key="y">0</property>
-        </ignition-gui>
-        <topic_picker>false</topic_picker>
-        <topic>/world/diff_bot/model/bot/link/base_link/sensor/front_camera/image</topic>
-      </plugin>
-      <plugin filename="ImageDisplay" name="FrontRGBDDepth">
-        <ignition-gui>
-          <title>RGBD: depth front</title>
-          <property key="state" type="string">floating</property>
-          <property type="double" key="width">280</property>
-          <property type="double" key="height">300</property>
-          <property type="double" key="x">0</property>
-          <property type="double" key="y">250</property>
-        </ignition-gui>
-        <topic_picker>false</topic_picker>
-        <topic>/world/diff_bot/model/bot/link/base_link/sensor/front_camera/depth_image</topic>
-      </plugin>
-      <plugin filename="ImageDisplay" name="BackRGBDImage">
-        <ignition-gui>
-          <title>RGB: image back</title>
-          <property key="state" type="string">floating</property>
-          <property type="double" key="width">280</property>
-          <property type="double" key="height">300</property>
-          <property type="double" key="x">275</property>
-          <property type="double" key="y">0</property>
-        </ignition-gui>
-        <topic_picker>false</topic_picker>
-        <topic>/world/diff_bot/model/bot/link/base_link/sensor/back_camera/image</topic>
-      </plugin>
-      <plugin filename="ImageDisplay" name="ThirdRGBDImage">
-        <ignition-gui>
-          <title>RGB: Third person</title>
-          <property key="state" type="string">floating</property>
-          <property type="double" key="width">280</property>
-          <property type="double" key="height">300</property>
-          <property type="double" key="x">0</property>
-          <property type="double" key="y">600</property>
-        </ignition-gui>
-        <topic_picker>false</topic_picker>
-        <topic>/world/diff_bot/model/bot/link/base_link/sensor/third_person_camera/image</topic>
-      </plugin>
       <!-- Key publisher -->
       <plugin filename="KeyPublisher" name="Key Publisher">
         <ignition-gui>
