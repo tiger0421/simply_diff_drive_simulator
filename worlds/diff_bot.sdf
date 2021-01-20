@@ -243,14 +243,125 @@
       <pose>-10 -5 0 0 0 0.57</pose>
       <uri>https://fuel.ignitionrobotics.org/1.0/OpenRobotics/models/Pine Tree</uri>
     </include>
-    <include>
-      <pose>-5 20 0 0 0 -3</pose>
-      <uri>https://fuel.ignitionrobotics.org/1.0/OpenRobotics/models/Collapsed House</uri>
-    </include>
-    <include>
-      <pose>-20 0 0 0 0 -1.14</pose>
-      <uri>https://fuel.ignitionrobotics.org/1.0/athackst/models/bicycle</uri>
-    </include>
+
+<!-- add white line -->
+    <model name='vertical_line_1'>
+      <static>true</static>
+      <pose>5 6 0 0 0 0</pose>
+      <link name='line1'>
+        <pose/>
+        <visual name='visual'>
+          <geometry>
+            <box>
+              <size>6.0 0.05 0.001</size>
+            </box>
+          </geometry>
+          <material>
+             <ambient>1.0 1.0 1.0 1</ambient>
+             <diffuse>1.0 1.0 1.0 1</diffuse>
+             <specular>1.0 1.0 1.0 1</specular>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name='horizontal_line1'>
+      <static>true</static>
+      <pose>8 6 0 0 0 0</pose>
+      <link name='line1'>
+        <pose/>
+        <visual name='visual'>
+          <geometry>
+            <box>
+              <size>0.05 1.0 0.001</size>
+            </box>
+          </geometry>
+          <material>
+             <ambient>1.0 1.0 1.0 1</ambient>
+             <diffuse>1.0 1.0 1.0 1</diffuse>
+             <specular>1.0 1.0 1.0 1</specular>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <model name='vertical_line_2'>
+      <static>true</static>
+      <pose>6 -5 0 0 0 1.57</pose>
+      <link name='line2'>
+        <pose/>
+        <visual name='visual'>
+          <geometry>
+            <box>
+              <size>6.0 0.05 0.001</size>
+            </box>
+          </geometry>
+          <material>
+             <ambient>1.0 1.0 1.0 1</ambient>
+             <diffuse>1.0 1.0 1.0 1</diffuse>
+             <specular>1.0 1.0 1.0 1</specular>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name='horizontal_line2'>
+      <static>true</static>
+      <pose>6 -8 0 0 0 1.57</pose>
+      <link name='line2'>
+        <pose/>
+        <visual name='visual'>
+          <geometry>
+            <box>
+              <size>0.05 1.0 0.001</size>
+            </box>
+          </geometry>
+          <material>
+             <ambient>1.0 1.0 1.0 1</ambient>
+             <diffuse>1.0 1.0 1.0 1</diffuse>
+             <specular>1.0 1.0 1.0 1</specular>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <model name='vertical_line_3'>
+      <static>true</static>
+      <pose>-6 -4 0 0 0 1.57</pose>
+      <link name='line3'>
+        <pose/>
+        <visual name='visual'>
+          <geometry>
+            <box>
+              <size>6.0 0.05 0.001</size>
+            </box>
+          </geometry>
+          <material>
+             <ambient>1.0 1.0 1.0 1</ambient>
+             <diffuse>1.0 1.0 1.0 1</diffuse>
+             <specular>1.0 1.0 1.0 1</specular>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <model name='horizontal_line3'>
+      <static>true</static>
+      <pose>-6 -7 0 0 0 1.57</pose>
+      <link name='line2'>
+        <pose/>
+        <visual name='visual'>
+          <geometry>
+            <box>
+              <size>0.05 1.0 0.001</size>
+            </box>
+          </geometry>
+          <material>
+             <ambient>1.0 1.0 1.0 1</ambient>
+             <diffuse>1.0 1.0 1.0 1</diffuse>
+             <specular>1.0 1.0 1.0 1</specular>
+          </material>
+        </visual>
+      </link>
+    </model>
+
     <actor name="actor_talking_1">
       <animation name="talking">
         <filename>https://fuel.ignitionrobotics.org/1.0/Mingfei/models/actor/tip/files/meshes/talk_b.dae</filename>
@@ -267,40 +378,16 @@
         <trajectory id="0" type="talk_b">
           <waypoint>
             <time>0</time>
-            <pose>4 -4 1 0 0 0</pose>
+            <pose>6 -5 1 0 0 0</pose>
           </waypoint>
           <waypoint>
             <time>30</time>
-            <pose>4.2 -4 1 0 0 0</pose>
+            <pose>6.2 -5 1 0 0 0</pose>
           </waypoint>
         </trajectory>
       </script>
     </actor>
-    <actor name="actor_talking_2">
-      <animation name="talking">
-        <filename>https://fuel.ignitionrobotics.org/1.0/Mingfei/models/actor/tip/files/meshes/talk_a.dae</filename>
-        <scale>0.055</scale>
-        <interpolate_x>true</interpolate_x>
-      </animation>
-      <skin>
-        <filename>https://fuel.ignitionrobotics.org/1.0/Mingfei/models/actor/tip/files/meshes/talk_a.dae</filename>
-        <scale>1.0</scale>
-      </skin>
-      <script>
-        <loop>true</loop>
-        <auto_start>true</auto_start>
-        <trajectory id="0" type="talk_a">
-          <waypoint>
-            <time>0</time>
-            <pose>4 -5.5 1 0 0 0</pose>
-          </waypoint>
-          <waypoint>
-            <time>30</time>
-            <pose>4 -5.7 1 0 0 0</pose>
-          </waypoint>
-        </trajectory>
-      </script>
-    </actor>
+
     <model name="ground_plane">
       <static>true</static>
       <link name="link">
@@ -319,9 +406,9 @@
             </plane>
           </geometry>
           <material>
-            <ambient>0.8 0.8 0.8 1</ambient>
-            <diffuse>0.8 0.8 0.8 1</diffuse>
-            <specular>0.8 0.8 0.8 1</specular>
+            <ambient>0.3 0.3 0.3 1</ambient>
+            <diffuse>0.3 0.3 0.3 1</diffuse>
+            <specular>0.3 0.3 0.3 1</specular>
           </material>
         </visual>
       </link>
