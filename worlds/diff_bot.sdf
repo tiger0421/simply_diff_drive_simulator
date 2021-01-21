@@ -196,10 +196,10 @@
     </include>
 
 <!-- add white line -->
-    <model name='vertical_line_1'>
+    <model name='vertical_T_line_1'>
       <static>true</static>
       <pose>5 6 0 0 0 0</pose>
-      <link name='line1'>
+      <link name='T_line1'>
         <pose/>
         <visual name='visual'>
           <geometry>
@@ -215,10 +215,10 @@
         </visual>
       </link>
     </model>
-    <model name='horizontal_line1'>
+    <model name='horizontal_T_line1'>
       <static>true</static>
       <pose>8 6 0 0 0 0</pose>
-      <link name='line1'>
+      <link name='T_line1'>
         <pose/>
         <visual name='visual'>
           <geometry>
@@ -235,10 +235,10 @@
       </link>
     </model>
 
-    <model name='vertical_line_2'>
+    <model name='vertical_T_line_2'>
       <static>true</static>
       <pose>6 -5 0 0 0 1.57</pose>
-      <link name='line2'>
+      <link name='T_line2'>
         <pose/>
         <visual name='visual'>
           <geometry>
@@ -254,10 +254,10 @@
         </visual>
       </link>
     </model>
-    <model name='horizontal_line2'>
+    <model name='horizontal_T_line2'>
       <static>true</static>
       <pose>6 -8 0 0 0 1.57</pose>
-      <link name='line2'>
+      <link name='T_line2'>
         <pose/>
         <visual name='visual'>
           <geometry>
@@ -274,10 +274,10 @@
       </link>
     </model>
 
-    <model name='vertical_line_3'>
+    <model name='vertical_T_line_3'>
       <static>true</static>
       <pose>-6 -4 0 0 0 1.57</pose>
-      <link name='line3'>
+      <link name='T_line3'>
         <pose/>
         <visual name='visual'>
           <geometry>
@@ -293,10 +293,10 @@
         </visual>
       </link>
     </model>
-    <model name='horizontal_line3'>
+    <model name='horizontal_T_line3'>
       <static>true</static>
       <pose>-6 -7 0 0 0 1.57</pose>
-      <link name='line2'>
+      <link name='T_line2'>
         <pose/>
         <visual name='visual'>
           <geometry>
