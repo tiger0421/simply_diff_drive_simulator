@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<robot name="diff_bot">
+<robot name="orne_alpha">
   <link name="base_link">
     <inertial>
       <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
