@@ -4,6 +4,7 @@
   <arg name="no_ign_gui" default="true"/>
   <arg name="robot_name" default="orne_alpha"/>
   <arg name="with_navigation" default="false"/>
+  <arg name="use_simulation" default="true"/>
   <!-- Ignition gazebo -->
   <include file="$(find simply_diff_drive_simulator)/launch/ignition_gazebo.launch">
     <arg name="no_ign_gui" value="$(arg no_ign_gui)"/>
@@ -39,6 +40,7 @@
   <group if="$(arg with_navigation)">
     <include file="$(find simply_diff_drive_simulator)/launch/run_navigation.launch">
       <arg name="robot_name" value="$(arg robot_name)"/>
+      <arg name="use_simulation" value="$(arg use_simulation)"/>
     </include>
   </group>
 </launch>
