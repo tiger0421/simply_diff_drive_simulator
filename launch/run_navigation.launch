@@ -5,10 +5,14 @@
   <arg name="map_file" default="$(find simply_diff_drive_simulator)/maps/simulator_map.yaml"/>
   <arg name="map_frame" default="map"/>
   <arg name="output" default="screen"/>
+  <arg name="cloud2_topic" default="$(arg robot_name)/velodyne_points"/>
+  <!-- Localization -->
+  <arg name="use_mcl_3dl" default="false"/>
+  <arg name="map_pcd" value="$(find simply_diff_drive_simulator)/maps/simulator_map_3d.pcd" if="$(arg use_mcl_3dl)"/>
   <!-- neonavigation arguments -->
   <arg name="use_path_with_velocity" default="false"/>
   <arg name="use_safety_limiter" default="false"/>
-  <arg name="cmd_vel_output" default="icart_mini/cmd_vel"/>
+  <arg name="cmd_vel_output" default="$(arg robot_name)/cmd_vel"/>
   <arg name="vel" default="0.8"/>
   <arg name="acc" default="0.25"/>
   <arg name="ang_vel" default="1.0"/>
@@ -18,7 +22,9 @@
   <node pkg="map_server" type="map_server" name="map_server" args="$(arg map_file)" output="$(arg output)">
     <param name="frame_id" value="$(arg map_frame)"/>
   </node>
-  <node pkg="amcl" type="amcl" name="amcl" output="$(arg output)">
+  <!-- Localization -->
+    <!-- 2D amcl -->
+  <node pkg="amcl" type="amcl" name="amcl" output="$(arg output)" unless="$(arg use_mcl_3dl)">
     <rosparam command="load" file="$(find simply_diff_drive_simulator)/config/amcl.yaml"/>
     <param name="odom_frame_id" value="$(arg robot_name)/odom"/>
     <param name="base_frame_id" value="$(arg robot_name)/base_link"/>
@@ -27,6 +33,19 @@
     <remap from="odom" to="/$(arg robot_name)/odom/filterd"/>
     <remap from="map" to="/map"/>
   </node>
+    <!-- 3D amcl -->
+  <group if="$(arg use_mcl_3dl)">
+    <node pkg="mcl_3dl" type="mcl_3dl" name="mcl_3dl" output="screen">
+      <param name="compatible" value="1" />
+      <remap from="odom" to="$(arg robot_name)/odom/filterd"/>
+      <remap from="cloud" to="$(arg cloud2_topic)"/>
+      <remap from="imu/data" to="imu/data"/>
+    </node>
+    <node pkg="pcl_ros" type="pcd_to_pointcloud" name="pcd_to_pointcloud" args="$(arg map_pcd)">
+      <remap from="cloud_pcd" to="mapcloud" />
+    </node>
+    <node pkg="tf2_ros" type="static_transform_publisher" name="map_odom_stf" args="0 0 0 0 0 0 map $(arg robot_name)/odom"/>
+  </group>
   <!-- neonavigation -->
   <rosparam command="load" file="$(find simply_diff_drive_simulator)/config/neonavigate.yaml"/>
   <node pkg="planner_cspace" type="planner_3d" name="planner_3d" output="$(arg output)">
@@ -44,7 +63,7 @@
     <param name="global_frame" value="$(arg map_frame)"/>
     <param name="robot_frame" value="$(arg robot_name)/base_link"/>
     <remap from="map_local" to="overlay1"/>
-    <remap from="cloud" to="$(arg robot_name)/points"/>
+    <remap from="cloud" to="$(arg cloud2_topic)"/>
   </node>
   <node pkg="trajectory_tracker" type="trajectory_tracker" name="trajectory_tracker">
     <param name="max_vel" value="$(arg vel)"/>
@@ -60,7 +79,7 @@
   <node pkg="safety_limiter" type="safety_limiter" name="safety_limiter" if="$(arg use_safety_limiter)" output="$(arg output)">
     <param name="fixed_frame" value="$(arg robot_name)/odom"/>
     <param name="base_frame" value="$(arg robot_name)/base_link"/>
-    <remap from="cloud" to="$(arg robot_name)/points"/>
+    <remap from="cloud" to="$(arg cloud2_topic)"/>
     <remap from="cmd_vel_in" to="$(arg cmd_vel_raw_output)"/>
     <remap from="cmd_vel" to="$(arg cmd_vel_output)"/>
   </node>

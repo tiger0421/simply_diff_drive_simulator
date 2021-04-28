@@ -12,7 +12,7 @@
   <arg name="rgb_third_frame" default="third_person_camera"/>
   <!-- Control command bridge -->
   <node pkg="ros_ign_bridge" type="parameter_bridge" name="control_bridge" output="screen" args="/model/$(arg robot_name)/cmd_vel@geometry_msgs/Twist]ignition.msgs.Twist">
-    <remap from="/model/$(arg robot_name)/cmd_vel" to="/icart_mini/cmd_vel"/>
+    <remap from="/model/$(arg robot_name)/cmd_vel" to="/$(arg robot_name)/cmd_vel"/>
   </node>
   <node pkg="ros_ign_bridge" type="parameter_bridge" name="odometry_bridge" output="screen" args="/model/$(arg robot_name)/odometry@nav_msgs/Odometry[ignition.msgs.Odometry">
     <remap from="/model/$(arg robot_name)/odometry" to="/$(arg robot_name)/odom/raw"/>
@@ -27,7 +27,7 @@
   <!-- For imu visualize-->
   <node pkg="tf2_ros" type="static_transform_publisher" name="imu_stf" args="0 0 0 0 0 0 $(arg tf_prefix)imu $(arg robot_name)/$(arg base_frame)/imu"/>
   <node pkg="ros_ign_bridge" type="parameter_bridge" name="lidar_bridge" output="screen" args="/world/$(arg world_name)/model/$(arg robot_name)/link/$(arg base_frame)/sensor/$(arg lidar_sensor_frame)/scan/points@sensor_msgs/PointCloud2[ignition.msgs.PointCloudPacked">
-    <remap from="/world/$(arg world_name)/model/$(arg robot_name)/link/$(arg base_frame)/sensor/$(arg lidar_sensor_frame)/scan/points" to="/$(arg robot_name)/points"/>
+    <remap from="/world/$(arg world_name)/model/$(arg robot_name)/link/$(arg base_frame)/sensor/$(arg lidar_sensor_frame)/scan/points" to="$(arg robot_name)/velodyne_points"/>
   </node>
   <node pkg="ros_ign_bridge" type="parameter_bridge" name="lidar_scan_bridge" output="screen" args="/world/$(arg world_name)/model/$(arg robot_name)/link/$(arg base_frame)/sensor/$(arg lidar_sensor_frame)/scan@sensor_msgs/LaserScan[ignition.msgs.LaserScan">
     <remap from="/world/$(arg world_name)/model/$(arg robot_name)/link/$(arg base_frame)/sensor/$(arg lidar_sensor_frame)/scan" to="/$(arg robot_name)/scan"/>
