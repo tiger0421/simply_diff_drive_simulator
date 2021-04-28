@@ -2,14 +2,14 @@
 <launch>
   <!-- Argument -->
   <arg name="robot_name" default="orne_alpha"/>
-  <arg name="map_file" default="$(find orne_description)/maps/simulator_map.yaml"/>
+  <arg name="map_file" default="$(find orne_neonavigation)/orne_description/maps/simulator_map.yaml"/>
   <arg name="map_frame" default="map"/>
   <arg name="output" default="screen"/>
   <arg name="cloud2_topic" default="$(arg robot_name)/velodyne_points"/>
   <arg name="use_simulation" default="false"/>
   <!-- Localization arguments -->
   <arg name="use_mcl_3dl" default="false"/>
-  <arg name="map_pcd" value="$(find orne_description)/maps/simulator_map_3d.pcd" if="$(arg use_mcl_3dl)"/>
+  <arg name="map_pcd" value="$(find orne_neonavigation)/orne_description/maps/simulator_map_3d.pcd" if="$(arg use_mcl_3dl)"/>
   <!-- neonavigation arguments -->
   <arg name="use_path_with_velocity" default="false"/>
   <arg name="use_safety_limiter" default="false"/>
@@ -92,7 +92,7 @@
     <node pkg="ypspur_ros" type="ypspur_ros" name="ypspur_ros">
       <param name="compatible" value="1"/>
       <param name="port" value="$(arg icart_controller_port)"/>
-      <param name="param_file" value="$(find orne_description)/icart/icart_middle.param"/>
+      <param name="param_file" value="$(find orne_neonavigation)/orne_description/icart/icart_middle.param"/>
       <remap from="cmd_vel" to="$(arg robot_name)/cmd_vel"/>
       <remap from="odom" to="$(arg robot_name)/odom"/>
     </node>
