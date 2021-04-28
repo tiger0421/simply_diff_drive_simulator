@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <launch>
   <!-- Argument -->
-  <arg name="robot_name" default="diff_bot"/>
+  <arg name="robot_name" default="orne_alpha"/>
   <arg name="map_file" default="$(find simply_diff_drive_simulator)/maps/simulator_map.yaml"/>
   <arg name="map_frame" default="map"/>
   <arg name="output" default="screen"/>
   <!-- neonavigation arguments -->
   <arg name="use_path_with_velocity" default="false"/>
   <arg name="use_safety_limiter" default="false"/>
-  <arg name="cmd_vel_output" default="$(arg robot_name)/cmd_vel"/>
+  <arg name="cmd_vel_output" default="icart_mini/cmd_vel"/>
   <arg name="vel" default="0.8"/>
   <arg name="acc" default="0.25"/>
   <arg name="ang_vel" default="1.0"/>

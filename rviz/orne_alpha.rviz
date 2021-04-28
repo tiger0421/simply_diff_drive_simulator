@@ -58,35 +58,35 @@ Visualization Manager:
       Frame Timeout: 5
       Frames:
         All Enabled: true
-        diff_bot/back_camera:
+        orne_alpha/back_camera:
           Value: true
-        diff_bot/base_link:
+        orne_alpha/base_link:
           Value: true
-        diff_bot/base_link/front_camera:
+        orne_alpha/base_link/front_camera:
           Value: true
-        diff_bot/base_link/imu:
+        orne_alpha/base_link/imu:
           Value: true
-        diff_bot/base_link/lidar:
+        orne_alpha/base_link/lidar:
           Value: true
-        diff_bot/body:
+        orne_alpha/body:
           Value: true
-        diff_bot/front_camera:
+        orne_alpha/front_camera:
           Value: true
-        diff_bot/front_free_wheel:
+        orne_alpha/front_free_wheel:
           Value: true
-        diff_bot/front_free_wheel_base:
+        orne_alpha/front_free_wheel_base:
           Value: true
-        diff_bot/imu:
+        orne_alpha/imu:
           Value: true
-        diff_bot/left_wheel:
+        orne_alpha/left_wheel:
           Value: true
-        diff_bot/lidar:
+        orne_alpha/lidar:
           Value: true
-        diff_bot/odom:
+        orne_alpha/odom:
           Value: true
-        diff_bot/right_wheel:
+        orne_alpha/right_wheel:
           Value: true
-        diff_bot/third_person_camera:
+        orne_alpha/third_person_camera:
           Value: true
         map:
           Value: true
@@ -96,28 +96,28 @@ Visualization Manager:
       Show Axes: true
       Show Names: false
       Tree:
-        diff_bot/odom:
-          diff_bot/base_link:
-            diff_bot/body:
-              diff_bot/back_camera:
+        orne_alpha/odom:
+          orne_alpha/base_link:
+            orne_alpha/body:
+              orne_alpha/back_camera:
                 {}
-              diff_bot/front_camera:
-                diff_bot/base_link/front_camera:
+              orne_alpha/front_camera:
+                orne_alpha/base_link/front_camera:
                   {}
-              diff_bot/front_free_wheel_base:
-                diff_bot/front_free_wheel:
+              orne_alpha/front_free_wheel_base:
+                orne_alpha/front_free_wheel:
                   {}
-              diff_bot/imu:
-                diff_bot/base_link/imu:
+              orne_alpha/imu:
+                orne_alpha/base_link/imu:
                   {}
-              diff_bot/left_wheel:
+              orne_alpha/left_wheel:
                 {}
-              diff_bot/lidar:
-                diff_bot/base_link/lidar:
+              orne_alpha/lidar:
+                orne_alpha/base_link/lidar:
                   {}
-              diff_bot/right_wheel:
+              orne_alpha/right_wheel:
                 {}
-            diff_bot/third_person_camera:
+            orne_alpha/third_person_camera:
               {}
         map:
           {}
@@ -188,7 +188,7 @@ Visualization Manager:
           Show Trail: false
       Name: Robot Model
       Robot Description: robot_description
-      TF Prefix: diff_bot
+      TF Prefix: orne_alpha
       Update Interval: 0
       Value: true
       Visual Enabled: true
@@ -208,8 +208,8 @@ Visualization Manager:
       Name: Joint Effort
       Robot Description: robot_description
       Scale: 1
-      TF Prefix: diff_bot
-      Topic: /diff_bot/joint_states
+      TF Prefix: orne_alpha
+      Topic: /orne_alpha/joint_states
       Unreliable: false
       Value: true
       Width: 0.019999999552965164
@@ -232,7 +232,7 @@ Visualization Manager:
       Class: rviz_imu_plugin/Imu
       Enabled: true
       Name: IMU
-      Topic: /diff_bot/imu/data
+      Topic: /orne_alpha/imu/data
       Unreliable: false
       Value: true
       fixed_frame_orientation: true
@@ -263,7 +263,7 @@ Visualization Manager:
           Size (Pixels): 4
           Size (m): 0.009999999776482582
           Style: Points
-          Topic: /diff_bot/scan
+          Topic: /orne_alpha/scan
           Unreliable: false
           Use Fixed Frame: true
           Use rainbow: true
@@ -293,7 +293,7 @@ Visualization Manager:
           Size (Pixels): 3
           Size (m): 0.009999999776482582
           Style: Points
-          Topic: /diff_bot/front_scan
+          Topic: /orne_alpha/front_scan
           Unreliable: false
           Use Fixed Frame: true
           Use rainbow: true
@@ -333,7 +333,7 @@ Visualization Manager:
             Shaft Length: 1
             Shaft Radius: 0.02500000037252903
             Value: Arrow
-          Topic: /diff_bot/odom/raw
+          Topic: /orne_alpha/odom/raw
           Unreliable: false
           Value: false
         - Angle Tolerance: 0.10000000149011612
@@ -367,7 +367,7 @@ Visualization Manager:
             Shaft Length: 1
             Shaft Radius: 0.02500000037252903
             Value: Arrow
-          Topic: /diff_bot/odom/filterd
+          Topic: /orne_alpha/odom/filterd
           Unreliable: false
           Value: true
       Enabled: true
@@ -399,7 +399,7 @@ Visualization Manager:
           Size (Pixels): 2
           Size (m): 0.009999999776482582
           Style: Points
-          Topic: /diff_bot/points
+          Topic: /orne_alpha/points
           Unreliable: false
           Use Fixed Frame: true
           Use rainbow: true
@@ -429,7 +429,7 @@ Visualization Manager:
           Size (Pixels): 2
           Size (m): 0.009999999776482582
           Style: Points
-          Topic: /diff_bot/front_points
+          Topic: /orne_alpha/front_points
           Unreliable: false
           Use Fixed Frame: true
           Use rainbow: true
@@ -440,7 +440,7 @@ Visualization Manager:
       Displays:
         - Class: rviz/Image
           Enabled: false
-          Image Topic: /diff_bot/front_image
+          Image Topic: /orne_alpha/front_image
           Max Value: 1
           Median window: 5
           Min Value: 0
@@ -452,7 +452,7 @@ Visualization Manager:
           Value: false
         - Class: rviz/Image
           Enabled: false
-          Image Topic: /diff_bot/back_image
+          Image Topic: /orne_alpha/back_image
           Max Value: 1
           Median window: 5
           Min Value: 0
@@ -464,7 +464,7 @@ Visualization Manager:
           Value: false
         - Class: rviz/Image
           Enabled: true
-          Image Topic: /diff_bot/third_person_image
+          Image Topic: /orne_alpha/third_person_image
           Max Value: 1
           Median window: 5
           Min Value: 0
@@ -747,7 +747,7 @@ Visualization Manager:
       Name: Current View
       Near Clip Distance: 0.009999999776482582
       Pitch: 0.4453985095024109
-      Target Frame: diff_bot/base_link
+      Target Frame: orne_alpha/base_link
       Value: Orbit (rviz)
       Yaw: 1.8485838174819946
     Saved: ~

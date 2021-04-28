@@ -2,7 +2,7 @@
 <launch>
   <!-- Argument -->
   <arg name="no_ign_gui" default="true"/>
-  <arg name="robot_name" default="diff_bot"/>
+  <arg name="robot_name" default="orne_alpha"/>
   <arg name="with_navigation" default="false"/>
   <!-- Ignition gazebo -->
   <include file="$(find simply_diff_drive_simulator)/launch/ignition_gazebo.launch">
@@ -11,7 +11,7 @@
   <!-- Ignition ros bridges -->
   <include file="$(find simply_diff_drive_simulator)/launch/ignition_bridge.launch">
     <arg name="robot_name" value="$(arg robot_name)"/>
-    <arg name="world_name" value="diff_bot"/>
+    <arg name="world_name" value="orne_alpha"/>
   </include>
   <!-- Linking base_link to odom -->
   <node pkg="robot_localization" type="ekf_localization_node" name="ekf_localization_node">
@@ -33,7 +33,7 @@
     <remap from="scan" to="/$(arg robot_name)/front_scan"/>
   </node>
   <!-- Rviz -->
-  <node type="rviz" pkg="rviz" name="diff_bot_rviz" args="-d $(find simply_diff_drive_simulator)/rviz/diff_bot.rviz" respawn="true">
+  <node type="rviz" pkg="rviz" name="orne_alpha_rviz" args="-d $(find simply_diff_drive_simulator)/rviz/orne_alpha.rviz" respawn="true">
   </node>
   <!-- Navigation -->
   <group if="$(arg with_navigation)">
