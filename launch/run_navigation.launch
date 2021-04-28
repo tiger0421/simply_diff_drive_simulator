@@ -2,14 +2,14 @@
 <launch>
   <!-- Argument -->
   <arg name="robot_name" default="orne_alpha"/>
-  <arg name="map_file" default="$(find simply_diff_drive_simulator)/maps/simulator_map.yaml"/>
+  <arg name="map_file" default="$(find orne_description)/maps/simulator_map.yaml"/>
   <arg name="map_frame" default="map"/>
   <arg name="output" default="screen"/>
   <arg name="cloud2_topic" default="$(arg robot_name)/velodyne_points"/>
   <arg name="use_simulation" default="false"/>
   <!-- Localization arguments -->
   <arg name="use_mcl_3dl" default="false"/>
-  <arg name="map_pcd" value="$(find simply_diff_drive_simulator)/maps/simulator_map_3d.pcd" if="$(arg use_mcl_3dl)"/>
+  <arg name="map_pcd" value="$(find orne_description)/maps/simulator_map_3d.pcd" if="$(arg use_mcl_3dl)"/>
   <!-- neonavigation arguments -->
   <arg name="use_path_with_velocity" default="false"/>
   <arg name="use_safety_limiter" default="false"/>
@@ -29,7 +29,7 @@
   <!-- Localization -->
     <!-- 2D amcl -->
   <node pkg="amcl" type="amcl" name="amcl" output="$(arg output)" unless="$(arg use_mcl_3dl)">
-    <rosparam command="load" file="$(find simply_diff_drive_simulator)/config/amcl.yaml"/>
+    <rosparam command="load" file="$(find orne_neonavigation)/config/amcl.yaml"/>
     <param name="odom_frame_id" value="$(arg robot_name)/odom"/>
     <param name="base_frame_id" value="$(arg robot_name)/base_link"/>
     <param name="global_frame_id" value="$(arg map_frame)"/>
@@ -51,7 +51,7 @@
     <node pkg="tf2_ros" type="static_transform_publisher" name="map_odom_stf" args="0 0 0 0 0 0 map $(arg robot_name)/odom"/>
   </group>
   <!-- neonavigation -->
-  <rosparam command="load" file="$(find simply_diff_drive_simulator)/config/neonavigate.yaml"/>
+  <rosparam command="load" file="$(find orne_neonavigation)/config/neonavigate.yaml"/>
   <node pkg="planner_cspace" type="planner_3d" name="planner_3d" output="$(arg output)">
     <param name="debug_mode" value="false"/>
     <param name="global_frame" value="$(arg map_frame)"/>

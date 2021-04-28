@@ -7,11 +7,11 @@
   <arg name="model_name" default="orne_alpha"/>
   <arg name="world_name" default="orne_alpha"/>
   <!-- Environment variables for ignitiion gazebo -->
-  <env name="SDF_PATH" value="$(optenv SDF_PATH):$(find simply_diff_drive_simulator)/models"/>
-  <env name="IGN_FILE_PATH" value="$(optenv IGN_FILE_PATH):$(find simply_diff_drive_simulator)/models"/>
-  <env name="IGN_GAZEBO_RESOURCE_PATH" value="$(optenv IGN_GAZEBO_RESOURCE_PATH):$(find simply_diff_drive_simulator)/worlds"/>
+  <env name="SDF_PATH" value="$(optenv SDF_PATH):$(find orne_neonavigation)/models"/>
+  <env name="IGN_FILE_PATH" value="$(optenv IGN_FILE_PATH):$(find orne_neonavigation)/models"/>
+  <env name="IGN_GAZEBO_RESOURCE_PATH" value="$(optenv IGN_GAZEBO_RESOURCE_PATH):$(find orne_neonavigation)/worlds"/>
   <!-- Load URDF -->
-  <param name="robot_description" textfile="$(find simply_diff_drive_simulator)/models/simply_diff_drive_robot/simply_diff_drive_robot.urdf"/>
+  <param name="robot_description" textfile="$(find orne_neonavigation)/models/orne_alpha/orne_alpha.urdf"/>
   <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher">
     <param name="publish_frequency" type="double" value="100.0"/>
     <param name="tf_prefix" value="$(arg model_name)"/>
