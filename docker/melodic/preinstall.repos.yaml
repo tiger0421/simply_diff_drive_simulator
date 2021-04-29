@@ -23,6 +23,10 @@ repositories:
     type: git
     url: https://github.com/at-wat/neonavigation_rviz_plugins.git
     version: master
+  mpc_ros:
+    type: git
+    url: https://github.com/NaokiTakahashi12/mpc_ros.git
+    version: enhanced_path_tracking
   velodyne:
     type: git
     url: https://github.com/ros-drivers/velodyne.git
