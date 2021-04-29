@@ -134,7 +134,7 @@ roslaunch orne_neonavigation run_simulation.launch with_navigation:=true map_fil
 <summary>map_pcd</summary>
 
 ```Shell
-roslaunch orne_neonavigation run_simulation.launch with_navigation:=true use_mcl_3dl:=true map_pcd:=/FULL/PATH/TO/MAP.yaml
+roslaunch orne_neonavigation run_simulation.launch with_navigation:=true use_mcl_3dl:=true map_pcd:=/FULL/PATH/TO/MAP.pcd
 ```
 
 </details>
