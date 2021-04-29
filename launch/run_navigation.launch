@@ -20,10 +20,10 @@
   <arg name="ang_acc" default="0.25"/>
   <arg name="cmd_vel_raw_output" default="$(arg robot_name)/cmd_vel_raw"/>
   <!-- icart arguments -->
-  <arg name="icart_controller_port" default="/dev/sensors/icart-mini"/>
-  <arg name="joystick_port" default="/dev/input/js0"/>
-  <arg name="use_2d_urg" default="false"/>
-  <group if="$(arg use_2d_urg)">
+  <group unless:="$(arg use_simulation)">
+    <arg name="icart_controller_port" default="/dev/sensors/icart-mini"/>
+    <arg name="joystick_port" default="/dev/input/js0"/>
+    <arg name="use_2d_urg" default="false"/>
     <arg name="2d_urg_port" default="/dev/sensors/hokuyo_H0803606"/>
     <arg name="2d_urg_ang_min" default="-1.047"/>
     <arg name="2d_urg_ang_max" default="1.047"/>
