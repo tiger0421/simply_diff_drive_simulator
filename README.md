@@ -105,40 +105,50 @@ You can use these option for navigation on simulator and on real robot respectiv
 
 <details>
 <summary>use_path_with_velocity</summary>
+
 ```Shell
 roslaunch orne_neonavigation run_simulation.launch no_ign_gui:=false with_navigation:=true use_path_with_velocity:=true
 ```
+
 </details>
 
 <details>
 <summary>use_safety_limiter</summary>
+
 ```Shell
 roslaunch orne_neonavigation run_navigation.launch use_safety_limiter:=true
 ```
+
 </details>
 
 <details>
 <summary>map_file</summary>
+
 ```Shell
 roslaunch orne_neonavigation run_simulation.launch with_navigation:=true map_file:=/FULL/PATH/TO/MAP.yaml
 ```
+
 </details>
 
 <details>
 <summary>map_pcd</summary>
+
 ```Shell
 roslaunch orne_neonavigation run_simulation.launch with_navigation:=true use_mcl_3dl:=true map_pcd:=/FULL/PATH/TO/MAP.yaml
 ```
+
 </details>
 
 <details>
 <summary>robot speed settings</summary>
+
 ```Shell
 vel:=0.8
 acc:=0.25
 ang_vel:=1.0
 ang_acc:=0.25
 ```
+
 </details>
 
 ---
