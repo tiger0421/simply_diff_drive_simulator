@@ -1,13 +1,12 @@
-# simply_diff_drive_simulator
+# ORNE_NeoNavigation
+Run navigation on a real robot or on simulator, ignition gazebo.
 
-Simulation of a simple differential wheeled robot using ignition gazebo
-
+## Video
+In this video, we use amcl, neonavigation, and octomap_mapping.
 [![](https://img.youtube.com/vi/n9oqzNH6MQM/0.jpg)](https://www.youtube.com/watch?v=n9oqzNH6MQM)
 
-In this video, we use amcl, neonavigation, and octomap_mapping.
 
 ## Usage
-
 ### Simulation + Navigation + Mapping
 
 In the video above, we do the following.
@@ -35,8 +34,10 @@ After clicking ignitoin gazebo gui, you can do the following
 + D: backward
 + R: stop
 
-## Install
 
+## Install
+<details>
+<summary>Build on host</summary>
 The following environment is recommended.
 
 + Ubnuntu 18.04
@@ -44,14 +45,20 @@ The following environment is recommended.
 + Ignition gazebo citadel
 
 ```Shell
-mkdir -p sim_ws/src
-cd sim_ws/src
-git clone https://github.com/ignitionrobotics/ros_ign.git -b melodic
-git clone https://github.com/at-wat/neonavigation.git
-git clone https://github.com/at-wat/neonavigation_msgs.git
-git clone https://github.com/at-wat/neonavigation_rviz_plugins.git
-git clone https://github.com/NaokiTakahashi12/simply_diff_drive_simulator.git
-cd ../
+mkdir -p ~/sim_ws/src
+curl https://raw.githubusercontent.com/tiger0421/orne_neonavigation/melodic/docker/melodic/preinstall.repos.yaml > preinstall.repos.yaml
+vcs import ~/sim_ws/src < preinstall.repos.yaml
+cd ~/sim_ws
+sudo rosdep init
+rosdep update
 rosdep install --from-paths src -i -r -y
 catkin_make -DCMAKE_BUILD_TYPE=Release
 ```
+※ Build failed  
+Change package version like below, when you failed buildig package, ros_ign.
+```Shell
+cd ~/sim_ws/src/ros_ign
+git reset --hard 269ed5d81eff385bb6b9fa25531b58bbc4adc4bf
+```
+and build again.
+</details>

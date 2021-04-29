@@ -11,9 +11,7 @@
   <arg name="use_mcl_3dl" default="false"/>
   <arg name="map_pcd" value="$(find orne_neonavigation)/orne_description/maps/simulator_map_3d.pcd" if="$(arg use_mcl_3dl)"/>
   <!-- neonavigation arguments -->
-  <arg name="use_mpc_trajectory_tracking" default="true"/>
-  <arg name="use_path_with_velocity" default="true" unless="$(arg use_mpc_trajectory_tracking)"/>
-  <arg name="use_path_with_velocity" default="false" if="$(arg use_mpc_trajectory_tracking)"/>
+  <arg name="use_path_with_velocity" default="false"/>
   <arg name="use_safety_limiter" default="false"/>
   <arg name="cmd_vel_output" default="$(arg robot_name)/cmd_vel"/>
   <arg name="vel" default="0.8"/>
@@ -77,20 +75,7 @@
     <remap from="map_local" to="overlay1"/>
     <remap from="cloud" to="$(arg cloud2_topic)"/>
   </node>
-  <node pkg="mpc_ros" type="nav_mpc" name="nav_mpc" if="$(arg use_mpc_trajectory_tracking)">
-    <rosparam file="$(find orne_neonavigation)/config/mpc_params.yaml" command="load"/>
-    <param name="pub_twist_cmd" value="true"/>
-    <param name="map_frame" value="map"/>
-    <param name="odom_frame" value="odom"/>
-    <param name="car_frame" value="base_link"/>
-    <param name="max_speed" value="$(arg vel)"/>
-    <param name="mpc_max_angvel" value="$(arg ang_vel)"/>
-    <remap from="/move_base/TrajectoryPlannerROS/global_plan" to="/path"/>
-    <remap from="/move_base_simple/goal" to="/planner_3d/path_end"/>
-    <remap from="cmd_vel" to="$(arg cmd_vel_output)" unless="$(arg use_safety_limiter)"/>
-    <remap from="cmd_vel" to="cmd_vel_raw" if="$(arg use_safety_limiter)"/>
-  </node>
-  <node pkg="trajectory_tracker" type="trajectory_tracker" name="trajectory_tracker" unless="$(arg use_mpc_trajectory_tracking)">
+  <node pkg="trajectory_tracker" type="trajectory_tracker" name="trajectory_tracker">
     <param name="max_vel" value="$(arg vel)"/>
     <param name="max_acc" value="$(arg acc)"/>
     <param name="max_angvel" value="$(arg ang_vel)"/>
