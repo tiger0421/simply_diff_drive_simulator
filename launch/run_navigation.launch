@@ -100,7 +100,7 @@
       <param name="port" value="$(arg icart_controller_port)"/>
       <param name="param_file" value="$(find orne_neonavigation)/orne_description/icart/icart_middle.param"/>
       <remap from="cmd_vel" to="$(arg robot_name)/cmd_vel"/>
-      <remap from="odom" to="$(arg robot_name)/odom"/>
+      <remap from="odom" to="$(arg robot_name)/odom/raw"/>
     </node>
     <include file="$(find velodyne_pointcloud)/launch/VLP16_points.launch"/>
     <node pkg="joy" type="joy_node" name="joystick">
