@@ -11,7 +11,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    image: orne_neonavigation:ros-melodic-nvidia
+    image: tiger0421/orne_neonavigation:ros-melodic-nvidia
     container_name: roscore
     networks:
       - rosbridge
@@ -25,7 +25,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    image: orne_neonavigation:ros-melodic-nvidia
+    image: tiger0421/orne_neonavigation:ros-melodic-nvidia
     container_name: ros-console
     runtime: nvidia
     tty: true
@@ -47,7 +47,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    image: orne_neonavigation:ros-melodic-nvidia
+    image: tiger0421/orne_neonavigation:ros-melodic-nvidia
     container_name: ros-simulator
     depends_on:
       - roscore
