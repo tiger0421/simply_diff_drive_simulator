@@ -8,7 +8,11 @@ services:
       - ~/.Xauthority:/root/.Xauthority:rw
       - /tmp/.docker.$USER.xauth:/tmp/.docker.xauth:ro
   roscore:
-    image: naokitakahashi12/simply-diff-drive-simulator:ros-melodic
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: orne_neonavigation:ros-melodic-nvidia
+    container_name: roscore
     networks:
       - rosbridge
     environment:
@@ -18,7 +22,12 @@ services:
       stdbuf -o L
       roscore
   ros-console:
-    image: naokitakahashi12/simply-diff-drive-simulator:ros-melodic
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: orne_neonavigation:ros-melodic-nvidia
+    container_name: ros-console
+    runtime: nvidia
     tty: true
     environment:
       - ROS_HOSTNAME=ros-console
@@ -35,9 +44,14 @@ services:
     env_file:
       - ./env_files/xwindow.env
   ros-simulator:
-    image: naokitakahashi12/simply-diff-drive-simulator:ros-melodic
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: orne_neonavigation:ros-melodic-nvidia
+    container_name: ros-simulator
     depends_on:
       - roscore
+    runtime: nvidia
     environment:
       - ROS_HOSTNAME=ros-simulator
       - ROS_MASTER_URI=http://roscore:11311
