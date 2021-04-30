@@ -143,10 +143,7 @@ roslaunch orne_neonavigation run_simulation.launch with_navigation:=true use_mcl
 <summary>robot speed settings</summary>
 
 ```Shell
-vel:=0.8
-acc:=0.25
-ang_vel:=1.0
-ang_acc:=0.25
+roslaunch orne_neonavigation run_navigation.launch vel:=0.8 acc:=0.25 ang_vel:=1.0 ang_acc:=0.25
 ```
 
 </details>
@@ -179,4 +176,26 @@ cd ~/sim_ws/src/ros_ign
 git reset --hard 269ed5d81eff385bb6b9fa25531b58bbc4adc4bf
 ```
 and build again.
+</details>
+
+<details>
+<summary>Use docker</summary>
+
+```Shell
+git clone -b melodic https://github.com/tiger0421/orne_neonavigation.git
+cd orne_neonavigation/docker
+sh scripts/generate_docker_xauth.sh
+
+# non-GPU
+cd melodic/intel
+docker-compose up -d
+
+# GPU
+cd melodic/nvidia
+docker-compose up -d
+
+# You can run commands inside this container
+docker exec -it ros-console /bin/bash
+```
+
 </details>
