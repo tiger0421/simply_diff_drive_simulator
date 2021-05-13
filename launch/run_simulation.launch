@@ -5,6 +5,7 @@
   <arg name="robot_name" default="orne_alpha"/>
   <arg name="with_navigation" default="false"/>
   <arg name="use_simulation" default="true"/>
+  <param name="use_sim_time" value="true"/>
   <!-- Localization arguments -->
   <arg name="map_file" default="$(find orne_neonavigation)/orne_description/maps/simulator_map.yaml"/>
   <arg name="use_mcl_3dl" default="false"/>
@@ -46,7 +47,7 @@
   </node>
   <!-- Navigation -->
   <group if="$(arg with_navigation)">
-    <include file="$(find orne_neonavigation)/launch/run_navigation.launch">
+    <include file="$(find orne_neonavigation)/launch/run_emcl_navigation.launch">
       <arg name="robot_name" value="$(arg robot_name)"/>
       <arg name="use_simulation" value="$(arg use_simulation)"/>
       <!-- Navigation arguments -->
