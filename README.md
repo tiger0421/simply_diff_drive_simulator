@@ -167,6 +167,7 @@ cd ~/sim_ws
 sudo rosdep init
 rosdep update
 rosdep install --from-paths src -i -r -y
+export IGNITION_VERSION=citadel
 catkin_make_isolated -DCMAKE_BUILD_TYPE=Release
 ```
 ※ Build failed  
