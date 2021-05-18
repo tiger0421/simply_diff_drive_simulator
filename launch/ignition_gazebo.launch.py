@@ -27,7 +27,7 @@ from launch_ros.actions import (
 
 def generate_launch_description():
     namespace = 'diff_bot'
-    sim_pkg_share_dir = get_package_share_directory('simply_diff_drive_simulator')
+    sim_pkg_share_dir = get_package_share_directory('orne_neonavigation')
 
     model_name = 'simply_diff_drive_robot'
     models_search_prefix = sim_pkg_share_dir + '/models/**/'
