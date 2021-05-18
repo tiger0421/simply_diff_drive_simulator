@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.5)
-project(simply_diff_drive_simulator)
+project(orne_neonavigation)
 
 # Default to C99
 if(NOT CMAKE_C_STANDARD)
