@@ -1,0 +1,38 @@
+repositories:
+  orne_neonavigation:
+    type: git
+    url: https://github.com/tiger0421/orne_neonavigation.git
+    version: melodic
+  ros_ign:
+    type: git
+    url: https://github.com/ignitionrobotics/ros_ign.git
+    version: 0.9.4
+  robot_localization:
+    type: git
+    url: https://github.com/cra-ros-pkg/robot_localization.git
+    version: melodic-devel
+  neonavigation:
+    type: git
+    url: https://github.com/at-wat/neonavigation.git
+    version: master
+  neonavigation_msgs:
+    type: git
+    url: https://github.com/at-wat/neonavigation_msgs.git
+    version: master
+  neonavigation_rviz_plugins:
+    type: git
+    url: https://github.com/at-wat/neonavigation_rviz_plugins.git
+    version: master
+  velodyne:
+    type: git
+    url: https://github.com/ros-drivers/velodyne.git
+    version: master
+  ypspur:
+    type: git
+    url: https://github.com/openspur/yp-spur.git
+    version: master
+  ypspur-ros:
+    type: git
+    url: https://github.com/openspur/ypspur_ros
+    version: master
+
