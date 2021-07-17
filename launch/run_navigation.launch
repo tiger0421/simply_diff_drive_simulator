@@ -20,14 +20,12 @@
   <arg name="ang_acc" default="0.25"/>
   <arg name="cmd_vel_raw_output" default="$(arg robot_name)/cmd_vel_raw"/>
   <!-- icart arguments -->
-  <group unless="$(arg use_simulation)">
-    <arg name="icart_controller_port" default="/dev/sensors/icart-mini"/>
-    <arg name="joystick_port" default="/dev/input/js0"/>
-    <arg name="use_2d_urg" default="false"/>
-    <arg name="2d_urg_port" default="/dev/sensors/hokuyo_H0803606"/>
-    <arg name="2d_urg_ang_min" default="-1.047"/>
-    <arg name="2d_urg_ang_max" default="1.047"/>
-  </group>
+  <arg name="icart_controller_port" default="/dev/sensors/icart-mini"/>
+  <arg name="joystick_port" default="/dev/input/js0"/>
+  <arg name="use_2d_urg" default="false"/>
+  <arg name="2d_urg_port" default="/dev/sensors/hokuyo_H0803606"/>
+  <arg name="2d_urg_ang_min" default="-1.047"/>
+  <arg name="2d_urg_ang_max" default="1.047"/>
   <!-- Load map -->
   <node pkg="map_server" type="map_server" name="map_server" args="$(arg map_file)" output="$(arg output)">
     <param name="frame_id" value="$(arg map_frame)"/>
@@ -114,8 +112,8 @@
       <param name="angular_axis" value="0" type="int"/>
       <param name="linear_axis2" value="10" type="int"/>
       <param name="angular_axis2" value="9" type="int"/>
-      <param name="linear_vel" value="$(arg max_velocity)" type="double"/>
-      <param name="angular_vel" value="$(arg max_angle_velocity)" type="double"/>
+      <param name="linear_vel" value="$(arg vel)" type="double"/>
+      <param name="angular_vel" value="$(arg acc)" type="double"/>
       <param name="linear_high_speed_ratio" value="1.3" type="double"/>
       <param name="angular_high_speed_ratio" value="1.1" type="double"/>
       <remap from="cmd_vel" to="$(arg cmd_vel_output)"/>
